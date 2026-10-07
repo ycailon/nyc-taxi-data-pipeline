@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nyc-taxi-data-pipeline"
+version = "0.1.0"
+description = "Incremental NYC TLC taxi ingestion, validation and SQL analytics pipeline."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2,<3.0",
+    "pyarrow>=17,<23",
+    "requests>=2.32,<3.0",
+    "PyYAML>=6.0,<7.0",
+    "typer>=0.12,<1.0",
+    "rich>=13.7,<15.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2,<10.0",
+    "ruff>=0.6,<1.0"
+]
+
+[project.scripts]
+taxi-pipeline = "taxi_pipeline.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

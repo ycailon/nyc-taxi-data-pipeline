@@ -1,0 +1,9 @@
+{
+  "dataset": "yellow",
+  "year": 2025,
+  "month": 1,
+  "source_rows": 500,
+  "valid_rows": 497,
+  "rejected_rows": 3,
+  "rows_loaded": 497
+}
